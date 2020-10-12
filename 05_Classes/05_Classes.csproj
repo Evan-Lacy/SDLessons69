@@ -54,6 +54,7 @@
     <Compile Include="Room.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="RoomTests.cs" />
+    <Compile Include="Examples.cs" />
     <Compile Include="Vehicle.cs" />
     <Compile Include="Greeter.cs" />
     <Compile Include="ClassTests.cs" />
