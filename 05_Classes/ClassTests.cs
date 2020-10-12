@@ -80,5 +80,17 @@ namespace _05_Classes
             vehicle.TurnOn();
             vehicle.TurnOff();
         }
+
+        [TestMethod]
+        public void PersonTest()
+        {
+            Person evan = new Person("Evan", "Lacy", new DateTime(1997, 01, 30));
+            Vehicle car = new Vehicle(VehicleType.Car, "Sebring");
+            evan.Transport = car;
+
+            Console.WriteLine(evan.FullName);
+            Console.WriteLine(evan.Age);
+            Console.WriteLine(evan.Transport.TypeofVehicle);
+        }
     }
 }
