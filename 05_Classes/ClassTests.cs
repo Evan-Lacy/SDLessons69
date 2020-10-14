@@ -92,5 +92,14 @@ namespace _05_Classes
             Console.WriteLine(evan.Age);
             Console.WriteLine(evan.Transport.TypeofVehicle);
         }
+
+        [TestMethod]
+        public void UserTest()
+        {
+            DateTime dob = new DateTime(1997, 01, 30);
+            User user = new User("Evan", "Lacy", 5, dob);
+
+            Console.WriteLine(user.GetYears());
+        }
     }
 }
