@@ -12,11 +12,26 @@ namespace _06_StreamingContent_Console
     {
         private StreamingContent_Repo _repo = new StreamingContent_Repo();
 
-
-
         public void Run()
         {
+            SeedContent(); 
             Menu();
+        }
+
+        private void SeedContent()
+        {
+            StreamingContent futureWar = new StreamingContent("Future War",
+                "A war in the future", 10.0, Genre.SciFi, MaturityRating.G);
+
+            StreamingContent blazingSaddles = new StreamingContent("Blazing Saddles", 
+                "A sheriff goes to a rural town...", 9.5, Genre.Action, MaturityRating.R);
+
+
+
+            StreamingContent theRoom = new StreamingContent("The Room",
+            "Everyone betrays Johnny and he's fed up with this world", 10.0, Genre.Documentary, MaturityRating.G);
+            _repo.AddContentToDirectory(futureWar);
+            _repo.AddContentToDirectory(theRoom);
         }
 
         private void Menu()
@@ -53,6 +68,7 @@ namespace _06_StreamingContent_Console
                         break;
                     case "4":
                         //Update existing content
+                        UpdateExistingContent();
                         break;
                     case "5":
                         //Delete existing content
@@ -166,6 +182,73 @@ namespace _06_StreamingContent_Console
             }
         }
     
+        private void UpdateExistingContent()
+        {
+            Console.Clear();
+
+            //ShowContentByTitle();
+            Console.WriteLine("Select the title of the content you'd like to update.");
+            string title = Console.ReadLine();
+            StreamingContent oldItem = _repo.GetContentByTitle(title);
+
+            if(oldItem == null)
+            {
+                Console.WriteLine("Content not found, Press any key to continue...");
+                Console.ReadKey();
+                return;
+            }
+
+            Console.WriteLine("What property would you like to update in it?");
+            Console.WriteLine("1. Title");
+            Console.WriteLine("2. Description");
+            Console.WriteLine("3. Star Rating");
+            Console.WriteLine("4. Genre");
+            Console.WriteLine("5. Maturity Rating");
+
+            string updateInput = Console.ReadLine();
+            switch (updateInput)
+            {
+                case "1":
+                    Console.WriteLine("Please enter the new title");
+                    oldItem.Title = Console.ReadLine();
+                    break;
+                case "2":
+                    Console.WriteLine("Please enter the new description");
+                    oldItem.Description = Console.ReadLine();
+                    break;
+                case "3":
+                    Console.WriteLine("Please enter the new Star Rating");
+                    oldItem.StarRating = Convert.ToDouble(Console.ReadLine());
+                    break;
+                case "4":
+                    Console.WriteLine("Please enter the new Genre");
+
+                    Console.WriteLine("Select a genre. ");
+                    Console.WriteLine("1.Horror");
+                    Console.WriteLine("2.RomCom");
+                    Console.WriteLine("3.SciFi");
+                    Console.WriteLine("4.Action");
+                    Console.WriteLine("5.Documentary");
+                    Console.WriteLine("6.Musical");
+                    Console.WriteLine("7.Drama");
+                    Console.WriteLine("8.Mystery");
+
+                    string genreThingy = Console.ReadLine();
+                    int genreThing = int.Parse(genreThingy);//parsing
+                    oldItem.Genre = (Genre)genreThing;//casting
+
+                    break;
+                //case "5":
+                //    Console.WriteLine("Please enter the new Maturity Rating");
+                //    oldItem.MaturityRating = Console.ReadLine();
+                //    break;
+                default:
+                    Console.WriteLine("Please enter a value.");
+                    break;
+
+            }
+        }
+
         private void ShowContentByTitle()
         {
             Console.Clear();
