@@ -53,6 +53,7 @@
     <Compile Include="Currency\ICurrency.cs" />
     <Compile Include="Currency\Transaction.cs" />
     <Compile Include="Currency\CurrencyTests.cs" />
+    <Compile Include="Currency\TransactionTests.cs" />
     <Compile Include="Fruits\FruitClasses.cs" />
     <Compile Include="Fruits\IFruit.cs" />
     <Compile Include="UnitTest1.cs" />
