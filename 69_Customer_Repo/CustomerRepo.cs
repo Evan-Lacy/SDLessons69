@@ -19,17 +19,17 @@ namespace _69_Customer_Repo
 
     
     //Create
-    public 
+    //public
 
     //read
-    public List<Customer> GetCustomer()
-    {
-        return _content;
-    }
-    
-    //update
+    //public List<Customer> GetCustomer()
+    //    {
+    //        return _content;
+    //    }
 
-    //delete
-    
+        //update
+
+        //delete
+
     }
 }
