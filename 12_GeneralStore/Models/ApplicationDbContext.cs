@@ -6,8 +6,13 @@ using System.Web;
 
 namespace _12_GeneralStore.Models
 {
+    //                               connects to DB and converts from SQL to C#
     public class ApplicationDbContext :DbContext
     {
+        public ApplicationDbContext() : base("DefaultConnection") { }
 
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
     }
 }

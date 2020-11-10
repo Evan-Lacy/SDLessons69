@@ -22,11 +22,13 @@ namespace _12_GeneralStore.Models
         
         [Required]
         public int CustomerId { get; set; }
-        [ForeignKey(nameof(CustomerId)]
+        [ForeignKey(nameof(CustomerId))]
         public virtual Customer Customer { get; set; }
         
         //formatting for JSON purposes
         [DataType(DataType.DateTime)]
         public DateTime DateOfTransaction { get; set; }
+
+        public int Quantity { get; set; }
     }
 }
