@@ -1,4 +1,5 @@
-﻿using _10_IntroToAPIs.Models;
+﻿using _10_IntroToAPIs.Model;
+using _10_IntroToAPIs.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,16 @@ namespace _10_IntroToAPIs
         static void Main(string[] args)
         {
             SwapiService swapi = new SwapiService();
+
+            CharacterWithHomeworld luke = swapi.GetCharacterWithHomeworldAsync(1).Result;
+            Console.WriteLine(luke.Name);
+            Console.WriteLine(luke.Homeworld.Name);
+
+
+
+
+
+            Console.WriteLine("================================================================");
 
             Console.WriteLine("Select which character you'd like to see.");
             Console.WriteLine("1. Luke Skywalker");
